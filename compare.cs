@@ -3,41 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-namespace ControlFlow1
+namespace LandscapeVSportrait
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter a number.");
-            int numberOne;
-            string inputOne = Console.ReadLine();
-            int.TryParse(inputOne, out numberOne);
+            string outcome = string.Empty;
+            int heightNow = new int();
+            int widthNow = new int();
+
+            Console.Write("Please enter the width of your picture? ");
             
-            Console.WriteLine("Please enter another number.");
-            int numberTwo;
-            string inputTwo = Console.ReadLine();
-            int.TryParse(inputTwo, out numberTwo);
+            string width = Console.ReadLine();
+            Convert.ToInt32(Regex.Replace(width, "[^0-9]", ""));
+            
+            Console.Write("Please enter the height of your picture? ");
+            
+            string height = Console.ReadLine();
+            heightNow = Convert.ToInt32(Regex.Replace(height, "[^0-9]", ""));
 
-            if (numberOne > numberTwo)
+            if (heightNow > widthNow)
             {
-                Console.WriteLine(inputOne + " is greater!");
+              Console.WriteLine(width + " x " + height + " and it is a portrait.");
             }
-
-            if (numberTwo > numberOne)
+            
+            if (widthNow > heightNow)
             {
-                Console.WriteLine(inputTwo + " is greater!");
-                Console.ReadLine();
-
+                Console.WriteLine("" + width + " x " + height + " and it is a landscape.");
             }
-            if (numberOne == numberTwo)
-            {
-                Console.WriteLine(numberOne + " and " + numberTwo + " are equal!");
-                Console.ReadLine();
-            }
-         
-            }
+            Console.ReadLine();
         }
     }
-
+}

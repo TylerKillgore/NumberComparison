@@ -1,40 +1,84 @@
+
 using System;
+
 using System.Collections.Generic;
+
 using System.Linq;
+
 using System.Text;
+
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
-namespace LandscapeVSportrait
+
+
+namespace ControlFlow1
+
 {
+
     class Program
+
     {
+
         static void Main(string[] args)
+
         {
-            string outcome = string.Empty;
-            int heightNow = new int();
-            int widthNow = new int();
 
-            Console.Write("Please enter the width of your picture? ");
-            
-            string width = Console.ReadLine();
-            Convert.ToInt32(Regex.Replace(width, "[^0-9]", ""));
-            
-            Console.Write("Please enter the height of your picture? ");
-            
-            string height = Console.ReadLine();
-            heightNow = Convert.ToInt32(Regex.Replace(height, "[^0-9]", ""));
+            Console.WriteLine("Please enter a number.");
 
-            if (heightNow > widthNow)
-            {
-              Console.WriteLine(width + " x " + height + " and it is a portrait.");
-            }
+            int numberOne;
+
+            string inputOne = Console.ReadLine();
+
+            int.TryParse(inputOne, out numberOne);
+
             
-            if (widthNow > heightNow)
+
+            Console.WriteLine("Please enter another number.");
+
+            int numberTwo;
+
+            string inputTwo = Console.ReadLine();
+
+            int.TryParse(inputTwo, out numberTwo);
+
+
+
+            if (numberOne > numberTwo)
+
             {
-                Console.WriteLine("" + width + " x " + height + " and it is a landscape.");
+
+                Console.WriteLine(inputOne + " is greater!");
+
             }
-            Console.ReadLine();
+
+
+
+            if (numberTwo > numberOne)
+
+            {
+
+                Console.WriteLine(inputTwo + " is greater!");
+
+                Console.ReadLine();
+
+
+
+            }
+
+            if (numberOne == numberTwo)
+
+            {
+
+                Console.WriteLine(numberOne + " and " + numberTwo + " are equal!");
+
+                Console.ReadLine();
+
+            }
+
+         
+
+            }
+
         }
+
     }
-}
